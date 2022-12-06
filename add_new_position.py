@@ -4,8 +4,8 @@
 import pandas as pd
 import requests
 
-FILENAME = "Fund_Positions_Test.csv"
-FILENAME2 = "Fund_Positions_Test.csv"
+FILENAME = "Fund_Positions.csv"
+FILENAME2 = "Fund_Positions.csv"
 MAX_API_TRIES = 20
 MAX_TIMEOUT = 15
 
@@ -29,7 +29,7 @@ def add_new_position(df, item_id):
     print(f"failed to to find information via buff163 api using item id: {item_id} ")
     
 
-ids = [876018, 894465, 895380, 40576, 895471, 894141, 895461, 894276, 880187, 895537, 895363, 894318, 894368, 876009, 34611]
+ids = [835504]
 
 for i_id in ids:
     fund = add_new_position(fund, i_id)
