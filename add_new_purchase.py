@@ -12,14 +12,17 @@ def reset_all_positions():
     inventory.Position_Size = 0
     inventory.Position_Value = 0
 
-def add_buy_position(name, position_size, price):
+def add_buy_position(item_id, quantity, price):
     """Updates purchase price, Position Size, Position Value of a newly bought item to the Fund"""
     price=price*7.4 #currently because test data in euro
-    inventory.Position_purchase_price[inventory.Position == name] = round((inventory.Position_purchase_price[inventory.Position==name]*inventory.Position_Size[inventory.Position==name]+price*position_size)/(inventory.Position_Size[inventory.Position==name]+position_size),2)
-    inventory.Position_Size[inventory.Position==name] = inventory.Position_Size[inventory.Position==name]+position_size
-    inventory.Position_Value[inventory.Position==name] = round(inventory.Position_Size[inventory.Position==name]*inventory.Value[inventory.Position==name],2)
-    inventory.Gain_relative[inventory.Position==name] = round(100*inventory.Position_Value[inventory.Position==name]/(inventory.Position_Size[inventory.Position==name]*inventory.Position_purchase_price[inventory.Position==name])-100,2)
-    inventory.Gain_absolute[inventory.Position==name] = round(inventory.Position_Value[inventory.Position==name]-(inventory.Position_Size[inventory.Position==name]*inventory.Position_purchase_price[inventory.Position==name]),2)
+    #inventory.loc[inventory.Item_ID == item_id, 'Position_Size'] = quantity
+    previous_purchase_price = inventory.loc[inventory.Item_ID == item_id, 'Position_purchase_price']
+    previous_position_size = inventory.loc[inventory.Item_ID == item_id, 'Position_Size']
+    inventory.loc[inventory.Item_ID == item_id, 'Position_purchase_price'] = round((previous_purchase_price*previous_position_size+price*quantity)/(previous_position_size+quantity),2)
+    inventory.loc[inventory.Item_ID == item_id, 'Position_Size'] = previous_position_size+quantity
+    inventory.loc[inventory.Item_ID == item_id, 'Position_Value'] = round((previous_position_size+quantity)*inventory.loc[inventory.Item_ID==item_id, 'Value'],2)
+    inventory.loc[inventory.Item_ID == item_id, 'Gain_relative'] = round(100*inventory.Position_Value[inventory.Position==name]/(inventory.Position_Size[inventory.Position==name]*inventory.Position_purchase_price[inventory.Position==name])-100,2)
+    inventory.loc[inventory.Item_ID == item_id, 'Gain_absolute'] = round(inventory.Position_Value[inventory.Position==name]-(inventory.Position_Size[inventory.Position==name]*inventory.Position_purchase_price[inventory.Position==name]),2)
 
 reset_all_positions()
 
