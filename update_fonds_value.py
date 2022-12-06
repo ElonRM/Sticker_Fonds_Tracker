@@ -76,8 +76,9 @@ if __name__ == '__main__':
     inventory["Lowest_Listing"] = values_df.Lowest_Listing
     inventory["Highest_Bid"] = values_df.Highest_Bid
     inventory.Position_Value = round(inventory.Value * inventory.Position_Size,2)
-    # Update new percentages of the Portfolio
+    inventory.Gain_relative = round(inventory.Value/inventory.Position_purchase_price*100-100, 2)
+    inventory.Gain_absolute = round((inventory.Value-inventory.Position_purchase_price)*inventory.Position_Size, 2)
     fonds_value = inventory['Position_Value'].sum()
     inventory.Percentage = round(inventory.Position_Value/fonds_value*100,2)
-    inventory.to_csv('Fund_Positions_Test.csv')
+    inventory.to_csv(FILENAME)
     update_fund_value()

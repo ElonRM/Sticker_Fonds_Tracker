@@ -32,7 +32,7 @@ def add_buy_position(item_id, quantity, price):
     inventory.loc[inventory.Item_ID == item_id, 'Gain_relative'] = new_gain_relative
     inventory.loc[inventory.Item_ID == item_id, 'Gain_absolute'] = new_gain_absolute
 
-reset_all_positions()
+#reset_all_positions()
 
 for index, row in purchase_data.iterrows():
     add_buy_position(row['Item_ID'], row['Quantity'], row['Purchase_Price'])
