@@ -9,7 +9,7 @@ FILENAME2 = "Fund_Positions_Test.csv"
 MAX_API_TRIES = 20
 MAX_TIMEOUT = 15
 
-df = pd.read_csv(FILENAME, index_col=0)
+fund = pd.read_csv(FILENAME, index_col=0)
 
 def add_new_position(df, item_id):
     """adds a new item to the Funds portfolio using item id"""
@@ -31,7 +31,7 @@ def add_new_position(df, item_id):
 
 ids = [876018, 894465, 895380, 40576, 895471, 894141, 895461, 894276, 880187, 895537, 895363, 894318, 894368, 876009, 34611]
 
-for item_id in ids:
-    df = add_new_position(df, item_id)
+for i_id in ids:
+    fund = add_new_position(fund, i_id)
 
-df.to_csv(FILENAME2)
+fund.to_csv(FILENAME2)
