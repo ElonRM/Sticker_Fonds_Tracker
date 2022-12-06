@@ -5,7 +5,8 @@ import requests
 
 MAX_API_TRIES = 10
 MAX_TIMEOUT = 10
-FILENAME = 'Fund_Positions_Test.csv'
+# FILENAME = 'Fund_Positions_Test.csv'
+FILENAME = 'Fund_Positions.csv'
 
 def update_value_of_position(item_id, previous_price=0):
     """updates the saved value of an item using the lowest listing and

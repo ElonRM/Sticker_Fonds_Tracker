@@ -1,3 +1,17 @@
-Vitality Holo Stockholm 2021
-sh1ri Holo Antwerp 2022
-Natus Holo Kato 2015
+Vitality Holo Stockholm 2021        876018
+sh1ro, Ax1le Holo Antwerp 2022      894465, 895380
+Natus Holo Kato 2015                40576
+m0NESY holo Antwerp 2022            895471
+broky holo Antwerp 2022             894141
+JT holo Antwerp 2022                895461
+kscerato holo Antwerp 2022          894276
+tornado chaos holo                  880187
+floppy holo Antwerp 2022            895537
+G2 gold Antwerp 2022                895363
+9Z Gold Antwerp 2022                894318
+Imperial Gold Antwerp 2022          894368
+Vitality Gold Antwerp 2022          876009
+Kato 15 Challengers                 34611
+
+
+Start_balance = 56128

@@ -2,7 +2,8 @@
 
 import pandas as pd
 
-FILENAME = 'Fund_Positions_Test.csv'
+#FILENAME = 'Fund_Positions_Test.csv'
+FILENAME = 'Fund_Positions.csv'
 
 inventory = pd.read_csv(FILENAME, index_col=0)
 purchase_data = pd.read_csv('dummy_buy_data.csv')
