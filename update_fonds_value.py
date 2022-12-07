@@ -2,11 +2,7 @@
 import datetime
 import pandas as pd
 import requests
-
-MAX_API_TRIES = 10
-MAX_TIMEOUT = 10
-# FILENAME = 'Fund_Positions_Test.csv'
-FILENAME = 'Fund_Positions.csv'
+import fund_variables as fv
 
 def update_value_of_position(item_id, previous_price=0):
     """updates the saved value of an item using the lowest listing and
@@ -21,8 +17,8 @@ def update_value_of_position(item_id, previous_price=0):
 def get_cheapest_listing(item_id, previous_data = 0):
     """returns the cheapest buff163 listing of an item in chinese rmb (¥)"""
     buff_api_link = f"https://buff.163.com/api/market/goods/sell_order?game=csgo&goods_id={item_id}&page_num=1&page_size=100"
-    for _ in range(MAX_API_TRIES):
-        api_request = requests.get(buff_api_link, timeout=MAX_TIMEOUT)
+    for _ in range(fv.MAX_API_TRIES):
+        api_request = requests.get(buff_api_link, timeout=fv.MAX_TIMEOUT)
         if api_request.status_code == 200:
             data = api_request.json()
             item_listings = data["data"]["items"]
@@ -39,8 +35,8 @@ def get_cheapest_listing(item_id, previous_data = 0):
 def get_highest_bid(item_id, previous_data = 0):
     """return the highest buff163 bid of an item in chense rmb (¥)"""
     buff_api_link = f"https://buff.163.com/api/market/goods/buy_order?game=csgo&goods_id={item_id}&page_num=1&page_size=100"
-    api_request = requests.get(buff_api_link, timeout=MAX_TIMEOUT)
-    for _ in range(MAX_API_TRIES):
+    api_request = requests.get(buff_api_link, timeout=fv.MAX_TIMEOUT)
+    for _ in range(fv.MAX_API_TRIES):
         if api_request.status_code == 200:
             data = api_request.json()
             item_listings = data["data"]["items"]
@@ -54,31 +50,49 @@ def get_highest_bid(item_id, previous_data = 0):
     return previous_data
 
 
-def update_fund_value():
-    """calculates the new fund value and saves it with a timestamp in the value history"""
+def save_fund_value():
+    """calculates the new fund value, relative and absolute gain and
+    saves it with a timestamp in the fund value history"""
+
     timestamp = datetime.datetime.now()
-    absolute_value = round(inventory['Position_Value'].sum(),2)
-    absolute_invested = round((inventory.Position_purchase_price*inventory.Position_Size).sum(),2)
+    absolute_invested = pd.read_csv(fv.DYNAMIC_VARIABLES,index_col=0).iloc[0]['Amount_Invested']
+
+    absolute_value = round(fund['Position_Value'].sum()+liquid_funds,2)
     gain_relative = round(absolute_value/absolute_invested*100-100,2)
     gain_absolute = round(absolute_value-absolute_invested,2)
-    with open(r'value_history.csv', 'a', encoding='UTF-8') as fonds_value_history:
-        fonds_value_history.write(
-            f"\n{timestamp},{absolute_invested},{absolute_value},{gain_relative},{gain_absolute}"
-            )
+    
+    fund_value_history = pd.read_csv(fv.FUND_VALUE_HISTORY,index_col=0)
+    fund_value_history= pd.concat([fund_value_history, pd.DataFrame({'Timestamp': timestamp,
+                                'Total_invested': [absolute_invested],
+                                'Total_value': [absolute_value],
+                                'Return_relative': [gain_relative],
+                                'Return_absolute': [gain_absolute]})]
+                                )
+    fund_value_history.to_csv(fv.FUND_VALUE_HISTORY)
+    # with open(r'value_history.csv', 'a', encoding='UTF-8') as fund_value_history:
+    #     fund_value_history.write(
+    #         f"\n{timestamp},{absolute_invested},{absolute_value},{gain_relative},{gain_absolute}"
+    #         )
 
 
 if __name__ == '__main__':
-    inventory = pd.read_csv(FILENAME, index_col=0)
-    new_values = [update_value_of_position(item_id, price) for item_id, price in zip(inventory.Item_ID, inventory.Value)]
+    fund = pd.read_csv(fv.FUND_FILENAME, index_col=0)
+
+    new_values = [update_value_of_position(item_id, price) for item_id, price in zip(fund.Item_ID, fund.Value)]
     values_df = pd.DataFrame(new_values, columns=['Value', 'Lowest_Listing', 'Highest_Bid'])
-    print(values_df)
-    inventory.Value = values_df.Value
-    inventory["Lowest_Listing"] = values_df.Lowest_Listing
-    inventory["Highest_Bid"] = values_df.Highest_Bid
-    inventory.Position_Value = round(inventory.Value * inventory.Position_Size,2)
-    inventory.Gain_relative = round(inventory.Value/inventory.Position_purchase_price*100-100, 2)
-    inventory.Gain_absolute = round((inventory.Value-inventory.Position_purchase_price)*inventory.Position_Size, 2)
-    fonds_value = inventory['Position_Value'].sum()
-    inventory.Percentage = round(inventory.Position_Value/fonds_value*100,2)
-    inventory.to_csv(FILENAME)
-    update_fund_value()
+    fund.Value = values_df.Value
+
+    fund.Lowest_Listing = values_df.Lowest_Listing
+    fund.Highest_Bid = values_df.Highest_Bid
+    fund.Position_Value = round(fund.Value * fund.Position_Size,2)
+    fund.Gain_relative = round(fund.Value/fund.Position_purchase_price*100-100, 2)
+    fund.Gain_absolute = round((fund.Value-fund.Position_purchase_price)*fund.Position_Size, 2)
+
+
+    liquid_funds = pd.read_csv(fv.DYNAMIC_VARIABLES,index_col=0).iloc[0]['Liquid_Funds']
+    fund_value = round(fund['Position_Value'].sum()+liquid_funds,2)
+    fund.Percentage = round(fund.Position_Value/fund_value*100,2)
+
+    save_fund_value()
+
+    fund.to_csv(fv.FUND_FILENAME)
