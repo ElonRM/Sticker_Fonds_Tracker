@@ -44,13 +44,13 @@ for index, row in purchase_data.iterrows():
     add_buy_position(row['Item_ID'], row['Quantity'], row['Purchase_Price'])
 
 # Adding the purchase to the purchase history
-total_order_price = round(sum(purchase_data.Quantity*purchase_data.Purchase_Price),2)
+order_price = round(sum(purchase_data.Quantity*purchase_data.Purchase_Price),2)
 buy_order_history = pd.concat([buy_order_history,
                                 pd.DataFrame({'Date': datetime.datetime.now().date(),
                                             'Item_IDs': purchase_data.Item_ID.to_list(),
                                             'Prices': purchase_data.Purchase_Price.to_list(),
                                             'Quantities': purchase_data.Quantity.to_list(),
-                                            'Total_Order_Price': total_order_price})]
+                                            'Total_Order_Price': order_price})]
                                 )
 # buy_order_history = buy_order_history.append({'Date': datetime.datetime.now().date(),
 #                                         'Item_IDs': purchase_data.Item_ID.to_list(),
@@ -61,7 +61,7 @@ buy_order_history = pd.concat([buy_order_history,
 #                                     )
 
 # Updates the Value of liquid_funds
-dynamic_variables['Liquid_Funds'].iloc[0] -= total_order_price
+dynamic_variables['Liquid_Funds'].iloc[0] = round(dynamic_variables['Liquid_Funds'].iloc[0] - order_price,2)    # pylint: disable=line-too-long
 dynamic_variables.to_csv(fv.DYNAMIC_VARIABLES)
 
 liquid_funds = dynamic_variables.iloc[0]['Liquid_Funds']
