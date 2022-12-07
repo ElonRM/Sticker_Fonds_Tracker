@@ -16,7 +16,7 @@ def update_value_of_position(item_id, previous_price=0):
 
 def get_cheapest_listing(item_id, previous_data = 0):
     """returns the cheapest buff163 listing of an item in chinese rmb (¥)"""
-    
+
     buff_api_link = f"https://buff.163.com/api/market/goods/sell_order?game=csgo&goods_id={item_id}&page_num=1&page_size=100"
     for _ in range(fv.MAX_API_TRIES):
         api_request = requests.get(buff_api_link, timeout=fv.MAX_TIMEOUT)
@@ -27,9 +27,9 @@ def get_cheapest_listing(item_id, previous_data = 0):
                 item_price = item_detail["price"]
                 return item_price
         else:
-            #print(f"Attempt {i}: buff api failed while ckecking for lowest listing for item id: {item_id}, retrying...")
+            # print(f"Attempt {i}: buff api failed while ckecking for lowest listing for item id: {item_id}, retrying...")
             pass
-    print(f"failed to check for lowest listing from buff163 api for item id: {item_id} ")
+    print(f"failed to check for lowest listing from buff163 api for item id: {item_id}")
     return previous_data
 
 
@@ -48,7 +48,7 @@ def get_highest_bid(item_id, previous_data = 0):
         else:
             #print(f"Attempt {i}: buff163 api failed to check for highest bid for item id: {item_id}, retrying...")
             pass
-    print(f"failed to check for highest bid from buff163 api for item id: {item_id} ")
+    print(f"failed to check for highest bid from buff163 api for item id: {item_id}")
     return previous_data
 
 
@@ -62,7 +62,7 @@ def save_fund_value(fund, liquid_funds):
     absolute_value = round(fund['Position_Value'].sum()+liquid_funds,2)
     gain_relative = round(absolute_value/absolute_invested*100-100,2)
     gain_absolute = round(absolute_value-absolute_invested,2)
-    
+
     fund_value_history = pd.read_csv(fv.FUND_VALUE_HISTORY,index_col=0)
     fund_value_history= pd.concat([fund_value_history, pd.DataFrame({'Timestamp': timestamp,
                                 'Total_invested': [absolute_invested],

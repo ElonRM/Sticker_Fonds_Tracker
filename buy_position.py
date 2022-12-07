@@ -36,19 +36,16 @@ fund = pd.read_csv(fv.FUND_FILENAME, index_col=0)
 purchase_data = pd.read_csv(fv.PURCHASE_DATA)
 buy_order_history = pd.read_csv(fv.BUY_ORDER_HISTORY, index_col=0)
 dynamic_variables = pd.read_csv(fv.DYNAMIC_VARIABLES,index_col=0)
-#liquid_funds = pd.read_csv(fv.LIQUID_FUNDS, index_col=0).iloc[0]['Liquid_Funds']
 
 #reset_all_positions()
 
 # Updates the Fund Values for each bought Item
-
 for index, row in purchase_data.iterrows():
-    pass
-    #add_buy_position(row['Item_ID'], row['Quantity'], row['Purchase_Price'])
+    add_buy_position(row['Item_ID'], row['Quantity'], row['Purchase_Price'])
 
 # Adding the purchase to the purchase history
 total_order_price = round(sum(purchase_data.Quantity*purchase_data.Purchase_Price),2)
-buy_order_history = pd.concat([buy_order_history, 
+buy_order_history = pd.concat([buy_order_history,
                                 pd.DataFrame({'Date': datetime.datetime.now().date(),
                                             'Item_IDs': purchase_data.Item_ID.to_list(),
                                             'Prices': purchase_data.Purchase_Price.to_list(),
@@ -72,8 +69,8 @@ liquid_funds = dynamic_variables.iloc[0]['Liquid_Funds']
 fund_value = fund['Position_Value'].sum()
 fund.Percentage = round(fund.Position_Value/(fund_value+liquid_funds)*100,2)
 
-#inventory.to_csv(fv.FUND_FILENAME)
-#buy_order_history.to_csv(fv.BUY_ORDER_HISTORY)
+fund.to_csv(fv.FUND_FILENAME)
+buy_order_history.to_csv(fv.BUY_ORDER_HISTORY)
 print(liquid_funds)
 fund = update_fund_value.update_fund_value(fund, liquid_funds)
 update_fund_value.save_fund_value(fund, liquid_funds)
