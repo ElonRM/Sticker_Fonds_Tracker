@@ -17,16 +17,18 @@ def add_new_position(df, item_id):
         if api_request.status_code == 200:
             data = api_request.json()
             item_name = data["data"]["goods_infos"][str(item_id)]["market_hash_name"]
-            item_value = data["data"]["items"][0]["price"]
+            item_value = float(data["data"]["items"][0]["price"])
             print(item_name, item_value)
-            new_position = {'Position': item_name, 'Value': item_value, 'Item_ID': item_id}
-            return df.append(new_position, ignore_index = True).fillna(0)
+            new_position = pd.DataFrame({'Position': [item_name], 'Value': [item_value], 'Item_ID': [item_id]})
+            df = pd.concat([df, new_position]).fillna(0)
+            return df
     print(f"failed to to find information via buff163 api using item id: {item_id} ")
-    
+    return df
 
-ids = [835504]
 
-for i_id in ids:
-    fund = add_new_position(fund, i_id)
+# ids = [835504]
 
-fund.to_csv(fv.FUND_FILENAME)
+# for i_id in ids:
+#     fund = add_new_position(fund, i_id)
+
+# fund.to_csv(fv.FUND_FILENAME)

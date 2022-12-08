@@ -4,6 +4,7 @@ import datetime
 import pandas as pd
 import fund_variables as fv
 import update_fund_value
+import add_new_position
 
 # TODO  # pylint: disable=fixme
 # If bought item doesnt yet exist in the Fund, add it to the fund
@@ -16,12 +17,17 @@ def reset_all_positions():
 def add_buy_position(item_id, quantity, price):
     """Updates purchase price, Position Size, Position Value of a
     newly bought item in the Fund"""
+    global fund
+    if item_id not in fund.Item_ID.values:
+        fund = add_new_position.add_new_position(fund, int(item_id))
     previous_purchase_price = fund.loc[fund.Item_ID == item_id, 'Position_purchase_price']
     previous_position_size = fund.loc[fund.Item_ID == item_id, 'Position_Size']
     item_value = fund.loc[fund.Item_ID==item_id, 'Value']
 
+    print(fund[fund.Item_ID == item_id])
     new_position_size = previous_position_size+quantity
     new_purchase_price = round((previous_purchase_price*previous_position_size+price*quantity)/(new_position_size),2)
+    print(new_position_size, item_value)
     new_position_value = round(new_position_size*item_value,2)
     new_gain_relative = round(100*item_value/new_purchase_price-100,2)
     new_gain_absolute = round(new_position_size*(item_value-new_purchase_price),2)
