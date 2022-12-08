@@ -20,9 +20,9 @@ def add_buy_position(item_id, quantity, price):
     global fund
     if item_id not in fund.Item_ID.values:
         fund = add_new_position.add_new_position(fund, int(item_id))
-    previous_purchase_price = fund.loc[fund.Item_ID == item_id, 'Position_purchase_price']
-    previous_position_size = fund.loc[fund.Item_ID == item_id, 'Position_Size']
-    item_value = fund.loc[fund.Item_ID==item_id, 'Value']
+    previous_purchase_price = float(fund.loc[fund.Item_ID == item_id, 'Position_purchase_price'])
+    previous_position_size = float(fund.loc[fund.Item_ID == item_id, 'Position_Size'])
+    item_value = float(fund.loc[fund.Item_ID==item_id, 'Value'])
 
     new_position_size = previous_position_size+quantity
     new_purchase_price = round((previous_purchase_price*previous_position_size+price*quantity)/(new_position_size),2)
@@ -49,12 +49,15 @@ for index, row in purchase_data.iterrows():
 
 # Adding the purchase to the purchase history
 order_price = round(sum(purchase_data.Quantity*purchase_data.Purchase_Price),2)
+order_id = buy_order_history.Order_ID.max()
 buy_order_history = pd.concat([buy_order_history,
                                 pd.DataFrame({'Date': datetime.datetime.now().date(),
                                             'Item_IDs': purchase_data.Item_ID.to_list(),
                                             'Prices': purchase_data.Purchase_Price.to_list(),
                                             'Quantities': purchase_data.Quantity.to_list(),
-                                            'Total_Order_Price': order_price})]
+                                            'Total_Order_Price': order_price,
+                                            'Order_ID': order_id})],
+                                ignore_index=True
                                 )
 # buy_order_history = buy_order_history.append({'Date': datetime.datetime.now().date(),
 #                                         'Item_IDs': purchase_data.Item_ID.to_list(),
@@ -65,10 +68,10 @@ buy_order_history = pd.concat([buy_order_history,
 #                                     )
 
 # Updates the Value of liquid_funds
-dynamic_variables['Liquid_Funds'].iloc[0] = round(dynamic_variables['Liquid_Funds'].iloc[0] - order_price,2)    # pylint: disable=line-too-long
+dynamic_variables.loc[0, 'Liquid_Funds'] = round(dynamic_variables.loc[0, 'Liquid_Funds'] - order_price,2)    # pylint: disable=line-too-long
 dynamic_variables.to_csv(fv.DYNAMIC_VARIABLES)
 
-liquid_funds = dynamic_variables.iloc[0]['Liquid_Funds']
+liquid_funds = dynamic_variables.loc[0,'Liquid_Funds']
 # Updating the percentages of the Portfolio
 fund_value = fund['Position_Value'].sum()
 fund.Percentage = round(fund.Position_Value/(fund_value+liquid_funds)*100,2)

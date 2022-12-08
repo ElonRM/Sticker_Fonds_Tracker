@@ -68,7 +68,8 @@ def save_fund_value(fund, liquid_funds):
                                 'Total_invested': [absolute_invested],
                                 'Total_value': [absolute_value],
                                 'Return_relative': [gain_relative],
-                                'Return_absolute': [gain_absolute]})]
+                                'Return_absolute': [gain_absolute]})],
+                                ignore_index=True
                                 )
     fund_value_history.to_csv(fv.FUND_VALUE_HISTORY)
 
