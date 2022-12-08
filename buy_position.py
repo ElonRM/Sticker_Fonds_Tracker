@@ -24,10 +24,8 @@ def add_buy_position(item_id, quantity, price):
     previous_position_size = fund.loc[fund.Item_ID == item_id, 'Position_Size']
     item_value = fund.loc[fund.Item_ID==item_id, 'Value']
 
-    print(fund[fund.Item_ID == item_id])
     new_position_size = previous_position_size+quantity
     new_purchase_price = round((previous_purchase_price*previous_position_size+price*quantity)/(new_position_size),2)
-    print(new_position_size, item_value)
     new_position_value = round(new_position_size*item_value,2)
     new_gain_relative = round(100*item_value/new_purchase_price-100,2)
     new_gain_absolute = round(new_position_size*(item_value-new_purchase_price),2)
@@ -77,6 +75,5 @@ fund.Percentage = round(fund.Position_Value/(fund_value+liquid_funds)*100,2)
 
 fund.to_csv(fv.FUND_FILENAME)
 buy_order_history.to_csv(fv.BUY_ORDER_HISTORY)
-print(liquid_funds)
 fund = update_fund_value.update_fund_value(fund, liquid_funds)
 update_fund_value.save_fund_value(fund, liquid_funds)

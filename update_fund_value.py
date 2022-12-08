@@ -71,7 +71,7 @@ def save_fund_value(fund, liquid_funds):
                                 'Return_absolute': [gain_absolute]})]
                                 )
     fund_value_history.to_csv(fv.FUND_VALUE_HISTORY)
-    print(liquid_funds)
+
 
 def update_fund_value(fund, liquid_funds):
     """updates the funds value and saves it into fund_value_history.csv"""
@@ -90,7 +90,6 @@ def update_fund_value(fund, liquid_funds):
     #liquid_funds = pd.read_csv(fv.DYNAMIC_VARIABLES,index_col=0).iloc[0]['Liquid_Funds']
     fund_value = round(fund['Position_Value'].sum()+liquid_funds,2)
     fund.Percentage = round(fund.Position_Value/fund_value*100,2)
-    print(liquid_funds)
     return fund
 
 
