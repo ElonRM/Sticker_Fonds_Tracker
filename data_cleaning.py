@@ -47,3 +47,14 @@ update_fund_value.save_fund_value(df, liquid_funds = pd.read_csv(fv.DYNAMIC_VARI
 # print(purchase_data.Quantity.to_list())
 # print(buy_order_history)
 # #buy_order_history.to_csv(fv.BUY_ORDER_HISTORY)
+
+"""
+ropz 3
+max 1
+navi antwerp 10
+g2 holo antwerp 2
+furia antwerp 1
+pain 10
+entropiq 7
+
+"""

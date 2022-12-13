@@ -76,7 +76,8 @@ liquid_funds = dynamic_variables.loc[0,'Liquid_Funds']
 fund_value = fund['Position_Value'].sum()
 fund.Percentage = round(fund.Position_Value/(fund_value+liquid_funds)*100,2)
 
-fund.to_csv(fv.FUND_FILENAME)
-buy_order_history.to_csv(fv.BUY_ORDER_HISTORY)
 fund = update_fund_value.update_fund_value(fund, liquid_funds)
 update_fund_value.save_fund_value(fund, liquid_funds)
+
+fund.to_csv(fv.FUND_FILENAME)
+buy_order_history.to_csv(fv.BUY_ORDER_HISTORY)

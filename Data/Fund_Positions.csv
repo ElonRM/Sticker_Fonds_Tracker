@@ -1,52 +1,54 @@
 ,Position,Value,Position_Size,Percentage,Position_Value,Position_purchase_price,Gain_relative,Gain_absolute,Item_ID,Lowest_Listing,Highest_Bid
-0,Stockholm 2021 Contenders Sticker Capsule,5.78,419.0,4.25,2421.82,5.58,3.58,83.8,875837,5.78,5.6
-1,Stockholm 2021 Challengers Sticker Capsule,15.07,255.0,6.74,3842.85,13.79,9.28,326.4,875971,15.07,14.2
-2,Antwerp 2022 Contenders Autograph Capsule,1.23,1105.0,2.38,1359.15,1.2,2.5,33.15,894283,1.23,1.2
-3,Stockholm 2021 Legends Sticker Capsule,3.52,399.0,2.46,1404.48,3.6,-2.22,-31.92,875864,3.52,3.5
-4,Sticker | rox (Holo) | Antwerp 2022,182.7,15.0,4.81,2740.5,177.36,3.01,80.1,895464,182.7,177.0
-5,Sticker | max (Holo) | Antwerp 2022,23.86,49.0,2.05,1169.14,23.1,3.29,37.24,895634,23.86,22.7
-6,Sticker | ropz (Holo) | Antwerp 2022,29.09,16.0,0.82,465.44,27.4,6.17,27.04,895431,29.09,27.3
-7,Sticker | FURIA (Holo) | Antwerp 2022,15.15,28.0,0.74,424.2,15.6,-2.88,-12.6,894182,15.15,15.0
-8,Sticker | Cloud9 (Holo) | Antwerp 2022,29.57,22.0,1.14,650.54,30.0,-1.43,-9.46,894316,29.57,29.0
+0,Stockholm 2021 Contenders Sticker Capsule,5.7,419.0,4.16,2388.3,5.58,2.15,50.28,875837,5.7,5.6
+1,Stockholm 2021 Challengers Sticker Capsule,14.9,436.0,11.33,6496.4,13.82,7.81,470.88,875971,14.9,14.2
+2,Antwerp 2022 Contenders Autograph Capsule,1.24,1105.0,2.39,1370.2,1.2,3.33,44.2,894283,1.24,1.2
+3,Stockholm 2021 Legends Sticker Capsule,3.5,599.0,3.66,2096.5,3.57,-1.96,-41.93,875864,3.5,3.5
+4,Sticker | rox (Holo) | Antwerp 2022,182.5,15.0,4.77,2737.5,177.36,2.9,77.1,895464,182.5,177.0
+5,Sticker | max (Holo) | Antwerp 2022,23.86,50.0,2.08,1193.0,23.1,3.29,38.0,895634,23.86,22.7
+6,Sticker | ropz (Holo) | Antwerp 2022,29.09,30.0,1.52,872.7,27.69,5.06,42.0,895431,29.09,27.5
+7,Sticker | FURIA (Holo) | Antwerp 2022,15.5,29.0,0.78,449.5,15.6,-0.64,-2.9,894182,15.5,15.0
+8,Sticker | Cloud9 (Holo) | Antwerp 2022,29.58,22.0,1.13,650.76,30.0,-1.4,-9.24,894316,29.58,29.0
 9,Sticker | Team Liquid (Holo) | Stockholm 2021,7.4,57.0,0.74,421.8,7.3,1.37,5.7,875982,7.4,7.2
-10,Sticker | MOUZ (Gold) | Stockholm 2021,654.88,1.0,1.15,654.88,570.0,14.89,84.88,876160,654.88,600.0
-11,Sticker | Virtus.Pro (Holo) | Stockholm 2021,19.2,0.0,0.0,0.0,6.22,208.68,0.0,875980,19.2,18.8
+10,Sticker | MOUZ (Gold) | Stockholm 2021,654.88,1.0,1.14,654.88,570.0,14.89,84.88,876160,654.88,600.0
+11,Sticker | Virtus.Pro (Holo) | Stockholm 2021,19.49,0.0,0.0,0.0,6.22,213.34,0.0,875980,19.49,18.9
 12,Sticker | Team Liquid (Holo) | Antwerp 2022,11.36,0.0,0.0,0.0,0.0,inf,0.0,895343,11.36,11.3
-13,Sticker | 9z Team (Holo) | Antwerp 2022,12.0,1.0,0.02,12.0,11.8,1.69,0.2,894383,12.0,11.4
-14,Sticker | Entropiq (Holo) | Stockholm 2021,14.2,65.0,1.62,923.0,12.87,10.33,86.45,875981,14.2,13.1
-15,Sticker | FURIA (Holo) | Stockholm 2021,14.89,0.0,0.0,0.0,7.25,105.38,0.0,875969,14.89,14.0
-16,Sticker | MOUZ (Holo) | Stockholm 2021,74.49,3.0,0.39,223.47,71.0,4.92,10.47,876070,74.49,71.0
-17,Sticker | paiN Gaming (Holo) | Stockholm 2021,18.9,38.0,1.26,718.2,17.71,6.72,45.22,876123,18.9,18.6
-18,Sticker | Natus Vincere (Holo) | Stockholm 2021,9.72,46.0,0.78,447.12,9.7,0.21,0.92,875977,9.72,9.7
-19,Sticker | Copenhagen Flames (Holo) | Stockholm 2021,19.2,41.0,1.38,787.2,20.4,-5.88,-49.2,876034,19.2,19.3
-20,Sticker | Imperial Esports (Holo) | Antwerp 2022,15.75,16.0,0.44,252.0,16.6,-5.12,-13.6,894346,15.75,15.6
-21,Sticker | Movistar Riders (Holo) | Stockholm 2021,20.47,17.0,0.61,347.99,19.4,5.52,18.19,876065,20.47,26.1
-22,Sticker | Natus Vincere (Holo) | Antwerp 2022,11.5,28.0,0.57,322.0,11.7,-1.71,-5.6,894280,11.5,11.2
+13,Sticker | 9z Team (Holo) | Antwerp 2022,12.0,61.0,1.28,732.0,11.7,2.56,18.3,894383,12.0,11.4
+14,Sticker | Entropiq (Holo) | Stockholm 2021,14.2,72.0,1.78,1022.4,12.87,10.33,95.76,875981,14.2,13.1
+15,Sticker | FURIA (Holo) | Stockholm 2021,14.79,31.0,0.8,458.49,14.5,2.0,8.99,875969,14.79,14.0
+16,Sticker | MOUZ (Holo) | Stockholm 2021,74.39,15.0,1.95,1115.85,73.4,1.35,14.85,876070,74.39,71.0
+17,Sticker | paiN Gaming (Holo) | Stockholm 2021,18.9,48.0,1.58,907.2,17.71,6.72,57.12,876123,18.9,18.6
+18,Sticker | Natus Vincere (Holo) | Stockholm 2021,9.77,46.0,0.78,449.42,9.7,0.72,3.22,875977,9.77,9.7
+19,Sticker | Copenhagen Flames (Holo) | Stockholm 2021,19.2,41.0,1.37,787.2,20.4,-5.88,-49.2,876034,19.2,19.3
+20,Sticker | Imperial Esports (Holo) | Antwerp 2022,15.75,37.0,1.02,582.75,16.71,-5.75,-35.52,894346,15.75,15.6
+21,Sticker | Movistar Riders (Holo) | Stockholm 2021,27.85,17.0,0.83,473.45,19.4,43.56,143.65,876065,28.72,26.1
+22,Sticker | Natus Vincere (Holo) | Antwerp 2022,11.3,38.0,0.75,429.4,11.7,-3.42,-15.2,894280,11.3,11.2
 23,Sticker | G2 Esports (Holo) | Stockholm 2021,8.39,25.0,0.37,209.75,8.7,-3.56,-7.75,875983,8.39,8.2
-24,Sticker | Tyloo (Holo) | Stockholm 2021,14.0,32.0,0.79,448.0,14.0,0.0,0.0,876043,14.0,13.8
+24,Sticker | Tyloo (Holo) | Stockholm 2021,14.0,32.0,0.78,448.0,14.0,0.0,0.0,876043,14.0,13.8
 25,Sticker | FaZe Clan (Holo) | Stockholm 2021,10.0,0.0,0.0,0.0,0.0,inf,0.0,876072,10.0,10.0
-26,Sticker | G2 Esports (Holo) | Antwerp 2022,12.18,2.0,0.04,24.36,12.31,-1.06,-0.26,895340,12.18,11.4
+26,Sticker | G2 Esports (Holo) | Antwerp 2022,12.27,18.0,0.39,220.86,12.3,-0.24,-0.54,895340,12.27,11.4
 27,Sticker | Heroic (Holo) | Antwerp 2022,3.06,0.0,0.0,0.0,0.0,inf,0.0,894259,3.06,3.0
-28,Sticker | Astralis (Holo) | Stockholm 2021,12.24,27.0,0.58,330.48,13.1,-6.56,-23.22,876016,12.24,11.5
-29,Sticker | Liquid Fire (Holo),61.0,40.0,4.28,2440.0,59.25,2.95,70.0,871554,61.0,57.0
+28,Sticker | Astralis (Holo) | Stockholm 2021,12.24,43.0,0.92,526.32,13.14,-6.85,-38.7,876016,12.24,11.5
+29,Sticker | Liquid Fire (Holo),61.0,40.0,4.25,2440.0,59.25,2.95,70.0,871554,61.0,57.0
 30,Sticker | Eternal Fire (Holo) | Antwerp 2022,10.47,0.0,0.0,0.0,0.0,inf,0.0,894364,10.47,10.4
-31,Sticker | sh1ro (Holo) | Antwerp 2022,27.17,10.0,0.48,271.7,27.1,0.26,0.7,894465,27.17,26.1
-32,Sticker | Vitality (Holo) | Stockholm 2021,6.76,0.0,0.0,0.0,0.0,inf,0.0,876018,6.76,6.6
-33,Sticker | Ax1Le (Holo) | Antwerp 2022,27.3,10.0,0.48,273.0,28.4,-3.87,-11.0,895380,27.3,26.0
-34,Sticker | Natus Vincere (Holo) | Katowice 2015,2650.0,0.0,0.0,0.0,0.0,inf,0.0,40576,2750.0,2450.0
-35,Sticker | m0NESY (Holo) | Antwerp 2022,55.9,0.0,0.0,0.0,0.0,inf,0.0,895471,55.9,53.0
+31,Sticker | sh1ro (Holo) | Antwerp 2022,27.17,10.0,0.47,271.7,27.1,0.26,0.7,894465,27.17,26.1
+32,Sticker | Vitality (Holo) | Stockholm 2021,6.72,83.0,0.97,557.76,6.1,10.16,51.46,876018,6.72,6.6
+33,Sticker | Ax1Le (Holo) | Antwerp 2022,27.3,10.0,0.48,273.0,28.4,-3.87,-11.0,895380,27.3,26.5
+34,Sticker | Natus Vincere (Holo) | Katowice 2015,2646.67,0.0,0.0,0.0,0.0,inf,0.0,40576,2745.0,2450.0
+35,Sticker | m0NESY (Holo) | Antwerp 2022,55.88,10.0,0.97,558.8,54.0,3.48,18.8,895471,55.88,53.0
 36,Sticker | broky (Holo) | Antwerp 2022,16.64,32.0,0.93,532.48,15.9,4.65,23.68,894141,16.64,16.0
-37,Sticker | JT (Holo) | Antwerp 2022,14.98,19.0,0.5,284.62,14.8,1.22,3.42,895461,14.98,14.9
+37,Sticker | JT (Holo) | Antwerp 2022,15.19,19.0,0.5,288.61,14.8,2.64,7.41,895461,15.19,14.9
 38,Sticker | KSCERATO (Holo) | Antwerp 2022,6.93,0.0,0.0,0.0,0.0,inf,0.0,894276,6.93,6.6
 39,Sticker | Tornado Chaos (Foil),75.0,3.0,0.39,225.0,70.0,7.14,15.0,880187,75.0,69.0
-40,Sticker | floppy (Holo) | Antwerp 2022,4.42,0.0,0.0,0.0,0.0,inf,0.0,895537,4.42,4.4
-41,Sticker | G2 Esports (Gold) | Antwerp 2022,53.2,6.0,0.56,319.2,58.0,-8.28,-28.8,895363,53.2,52.0
+40,Sticker | floppy (Holo) | Antwerp 2022,4.83,0.0,0.0,0.0,0.0,inf,0.0,895537,4.99,4.5
+41,Sticker | G2 Esports (Gold) | Antwerp 2022,53.0,6.0,0.55,318.0,58.0,-8.62,-30.0,895363,53.0,52.0
 42,Sticker | 9z Team (Gold) | Antwerp 2022,20.28,16.0,0.57,324.48,21.7,-6.54,-22.72,894318,20.28,20.2
 43,Sticker | Imperial Esports (Gold) | Antwerp 2022,57.3,6.0,0.6,343.8,55.0,4.18,13.8,894368,57.3,54.0
-44,Sticker | Vitality (Gold) | Stockholm 2021,30.6,10.0,0.54,306.0,32.1,-4.67,-15.0,876009,30.6,28.2
+44,Sticker | Vitality (Gold) | Stockholm 2021,30.5,10.0,0.53,305.0,32.1,-4.98,-16.0,876009,30.5,28.2
 45,ESL One Katowice 2015 Challengers (Holo-Foil),2899.0,0.0,0.0,0.0,0.0,inf,0.0,34611,2899.0,2650.0
-46,Sticker | Battle Scarred (Holo),32.09,25.0,1.41,802.25,31.0,3.52,27.25,835504,32.09,31.6
-47,Sticker | Miami Flow (Holo),56.93,5.0,0.5,284.65,52.1,9.27,24.15,871474,59.4,52.0
+46,Sticker | Battle Scarred (Holo),32.29,25.0,1.41,807.25,31.0,4.16,32.25,835504,32.29,31.6
+47,Sticker | Miami Flow (Holo),56.67,5.0,0.49,283.35,52.1,8.77,22.85,871474,59.0,52.0
 48,Sticker | Flame Buttery (Holo),20.9,20.0,0.73,418.0,20.4,2.45,10.0,871726,21.8,19.1
 49,Sticker | Miami Tier6 (Holo),148.4,3.0,0.78,445.2,146.0,1.64,7.2,871094,148.4,141.0
 50,Sticker | Miami Buttery (Holo),39.48,12.0,0.83,473.76,35.2,12.16,51.36,871692,40.87,36.7
+51,CS20 Sticker Capsule,5.73,0.0,0.0,0.0,0.0,inf,0.0,773534,5.73,5.6
+52,Sticker | Cotton Candy Flow (Holo),100.0,3.0,0.52,300.0,94.0,6.38,18.0,871643,100.0,95.0
