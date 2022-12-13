@@ -20,15 +20,15 @@ def add_new_position(df, item_id):
             item_value = float(data["data"]["items"][0]["price"])
             print(item_name, item_value)
             new_position = pd.DataFrame({'Position': [item_name], 'Value': [item_value], 'Item_ID': [item_id]})
-            df = pd.concat([df, new_position]).fillna(0)
+            df = pd.concat([df, new_position],ignore_index=True).fillna(0)
             return df
     print(f"failed to to find information via buff163 api using item id: {item_id} ")
     return df
 
 
-# ids = [835504]
+ids = [773534]
 
-# for i_id in ids:
-#     fund = add_new_position(fund, i_id)
+for i_id in ids:
+    fund = add_new_position(fund, i_id)
 
-# fund.to_csv(fv.FUND_FILENAME)
+fund.to_csv(fv.FUND_FILENAME)

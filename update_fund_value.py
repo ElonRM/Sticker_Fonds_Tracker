@@ -25,6 +25,7 @@ def get_cheapest_listing(item_id, previous_data = 0):
             item_listings = data["data"]["items"]
             for item_detail in item_listings:
                 item_price = item_detail["price"]
+                print(item_id,item_price,data["data"]["goods_infos"][str(int(item_id))]["market_hash_name"])
                 return item_price
         else:
             # print(f"Attempt {i}: buff api failed while ckecking for lowest listing for item id: {item_id}, retrying...")
