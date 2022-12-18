@@ -80,8 +80,9 @@ def update_fund_value(fund, liquid_funds):
 
     new_values = [update_value_of_position(item_id, price) for item_id, price in zip(fund.Item_ID, fund.Value)]
     values_df = pd.DataFrame(new_values, columns=['Value', 'Lowest_Listing', 'Highest_Bid'])
-    fund.Value = values_df.Value
+    fund['Gain_since_last_update'] = round(100*(values_df.Value/fund.Value -1),2)
 
+    fund.Value = values_df.Value
     fund.Lowest_Listing = values_df.Lowest_Listing
     fund.Highest_Bid = values_df.Highest_Bid
     fund.Position_Value = round(fund.Value * fund.Position_Size,2)
