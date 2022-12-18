@@ -26,9 +26,9 @@ def add_new_position(df, item_id):
     return df
 
 
-ids = [773534]
+# ids = [773534]
 
-for i_id in ids:
-    fund = add_new_position(fund, i_id)
+# for i_id in ids:
+#     fund = add_new_position(fund, i_id)
 
-fund.to_csv(fv.FUND_FILENAME)
+# fund.to_csv(fv.FUND_FILENAME)

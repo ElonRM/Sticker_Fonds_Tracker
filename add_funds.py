@@ -4,7 +4,7 @@
 import pandas as pd
 import fund_variables as fv
 
-NEWLY_INVESTED_FUNDS = 1
+NEWLY_INVESTED_FUNDS = 0
 dynamic_variables = pd.read_csv(fv.DYNAMIC_VARIABLES,index_col=0)
 
 dynamic_variables.loc[0, 'Liquid_Funds'] += NEWLY_INVESTED_FUNDS
