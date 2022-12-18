@@ -1,5 +1,4 @@
 ''' Includes all the globally used variables'''
-import pandas as pd
 
 FUND_FILENAME = 'Data/Fund_Positions.csv'
 BUY_ORDER_HISTORY = 'Data/buy_order_history.csv'
